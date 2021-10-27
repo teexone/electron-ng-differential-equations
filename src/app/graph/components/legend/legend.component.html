@@ -1,0 +1,17 @@
+<section class="legend">
+  <ol class="legend-list">
+    <li *ngFor="let element of legend"
+        [ngStyle]="{'opacity': (hidden[element.id] ? .5 : 1)}"
+        (click)="onToggle.emit({alias: element.id, state: !hidden[element.id]})"
+        class="legend-element">
+      <svg width="50" height="20">
+        <path d="M 0 5 L 50 5"
+              [attr.stroke]="element.color"
+        ></path>
+      </svg>
+      <p>
+        {{element.title}}
+      </p>
+    </li>
+  </ol>
+</section>

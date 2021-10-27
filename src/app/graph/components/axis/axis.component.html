@@ -1,0 +1,35 @@
+<svg:path xmlns:svg="http://www.w3.org/1999/xhtml"
+          [attr.d]="getAxisLinePath()"
+          [ngStyle]="axisLineStyle"
+>
+</svg:path>
+<svg:g xmlns:svg="http://www.w3.org/1999/xhtml">
+  <svg:g xmlns:svg="http://www.w3.org/1999/xhtml" *ngIf="direction == 'y-axis' else elseXAxis">
+    <ng-template ngFor let-numbers [ngForOf]="getNumbers()">
+      <svg:text
+        dominant-baseline="middle"
+        text-anchor="start"
+        *ngFor="let number of numbers"
+        [attr.x]="origin.x + displayDelta"
+        [attr.y]="getOriginShift(number.value).y"
+      >
+        {{-number.number | number}}
+      </svg:text>
+    </ng-template>
+  </svg:g>
+  <ng-template #elseXAxis>
+    <svg:g xmlns:svg="http://www.w3.org/1999/xhtml">
+      <ng-template ngFor let-numbers [ngForOf]="getNumbers()">
+        <svg:text
+          dominant-baseline="middle"
+          text-anchor="middle"
+          *ngFor="let number of numbers"
+          [attr.x]="getOriginShift(number.value).x"
+          [attr.y]="origin.y + displayDelta"
+        >
+          {{number.number | number}}
+        </svg:text>
+      </ng-template>
+    </svg:g>
+  </ng-template>
+</svg:g>

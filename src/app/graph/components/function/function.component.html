@@ -1,0 +1,25 @@
+<svg:g xmlns:svg="http://www.w3.org/1999/xhtml">
+  <defs>
+    <marker [attr.id]="'marker-' + _randomID"
+            *ngIf="discrete"
+            viewBox="0 0 10 10"
+            refX="5"
+            refY="5"
+            markerWidth="5"
+            markerHeight="5">
+      <circle cx="5" cy="5" r="5" [attr.fill]="styles['stroke']"></circle>
+    </marker>
+  </defs>
+  <path [attr.d]="getPath()"
+        [ngStyle]="styles"
+        [attr.marker-start]="'url(#marker-' + _randomID + ')'"
+        [attr.marker-end]="'url(#marker-' + _randomID + ')'"
+        [attr.marker-mid]="'url(#marker-' + _randomID + ')'"
+        stroke-width="2px"
+        fill="none"
+        style="transform: scale(1, 1)"
+
+  >
+
+  </path>
+</svg:g>

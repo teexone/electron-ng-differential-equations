@@ -1,0 +1,76 @@
+<section class="header-container">
+  <section class="navigation">
+    <button
+      *ngFor="let button of headerMenu"
+      class="header-container__button"
+      [ngClass]="{'active': currentPath == button.link}"
+      (click)="go(button.link)"
+    >
+      {{button.title | uppercase}}
+    </button>
+  </section>
+  <section class="values">
+    <form [formGroup]="valueForm">
+   <!--   <ng-template ngFor let-control [ngForOf]="getControls()">
+        <label [for]="'values__' + control[0]">{{control[0]}}</label>
+        <input type="text"
+               [formControlName]="control[0]"
+               [id]="'values__' + control[0]"
+               [ngClass]="{'invalid': control[1]?.invalid}"
+
+        >
+      </ng-template>-->
+      <span *ngIf="!hidden.x0">
+      <label for="values__x0">x<sub>0</sub></label>
+      <input type="text"
+             formControlName="x0"
+             id="values__x0"
+             [ngClass]="{'invalid': valueForm.get('x0')!.invalid}"
+             [hidden]="hidden.x0"
+             (change)="onFormChange()"
+      >
+      </span>
+      <span *ngIf="!hidden.y0">
+      <label for="values__y0">y<sub>0</sub></label>
+      <input type="text"
+             formControlName="y0"
+             id="values__y0"
+             [ngClass]="{'invalid': valueForm.get('y0')!.invalid}"
+             [hidden]="hidden.y0"
+             (change)="onFormChange()"
+      >
+      </span>
+      <span *ngIf="!hidden.X">
+      <label for="values__X">X</label>
+      <input type="text"
+             formControlName="X"
+             id="values__X"
+             [hidden]="hidden.X"
+             [ngClass]="{'invalid': valueForm.get('X')!.invalid}"
+             (change)="onFormChange()"
+      >
+      </span>
+      <span *ngIf="!hidden.n0">
+      <label for="values__n0">n<sub>0</sub></label>
+      <input type="text"
+             formControlName="n0"
+             id="values__n0"
+
+             [ngClass]="{'invalid': valueForm.get('n0')!.invalid}"
+             (change)="onFormChange()"
+      >
+      </span>
+      <span *ngIf="!hidden.N">
+      <label for="values__N">N</label>
+      <input type="text"
+             formControlName="N"
+             id="values__N"
+
+             [ngClass]="{'invalid': valueForm.get('N')!.invalid}"
+             (change)="onFormChange()"
+      >
+      </span>
+    </form>
+
+  </section>
+</section>

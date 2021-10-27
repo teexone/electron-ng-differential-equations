@@ -1,0 +1,28 @@
+@import "src/variables";
+
+.legend {
+  position: fixed;
+  top: $header-size;
+  right: 0;
+  background-color: white;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+
+  .legend-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .legend-element {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    * {
+      padding: 5px 10px;
+      margin: 0;
+    }
+  }
+}

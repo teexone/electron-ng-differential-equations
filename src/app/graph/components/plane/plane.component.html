@@ -1,0 +1,45 @@
+<section class="plane-container"
+         (mousemove)="eventService.fire($event)"
+         (mouseup)="eventService.fire($event)"
+         (mousedown)="eventService.fire($event)"
+>
+  <svg
+    #SVGPlotter
+    xmlns="http://www.w3.org/1999/xhtml"
+    class="svg-plotter"
+  >
+    <path *ngFor="let grid of generateGrid(); let i = index"
+          [attr.d]="grid"
+          [attr.stroke]="getGridColor(i)"
+          class="plane-grid"
+    >
+    </path>
+
+    <circle r="5" fill="black" [attr.cx]="origin.x" [attr.cy]="origin.y"></circle>
+    <g axis
+       axis-direction="y-axis"
+       [numbers]="generateNumbers('y')"
+       [length]="getHeight()"
+       [origin]="origin"
+       [axis-line-style]="{'stroke': '#4c4c4c', 'stroke-width': '2px'}"
+    ></g>
+    <g axis
+       axis-direction="x-axis"
+       [numbers]="generateNumbers('x')"
+       [length]="getWidth()"
+       [origin]="origin"
+       [axis-line-style]="{'stroke': '#4c4c4c', 'stroke-width': '2px'}"
+    ></g>
+
+    <g *ngFor="let plot of plotData"
+       [function]="plot.data"
+       [range]=   "plot.range"
+       [styles]=  "plot.styles"
+       [scale]=   "getScalar()"
+       [origin]=  "origin"
+       [discrete]="plot.discrete ?? false"
+    >
+    </g>
+  </svg>
+</section>
+<app-zoom-control></app-zoom-control>

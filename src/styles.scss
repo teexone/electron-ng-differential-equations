@@ -1,0 +1,21 @@
+
+
+body {
+  margin: 0;
+  &, * {
+    box-sizing: border-box;
+  }
+
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: Ubuntu-Medium;
+  src: url(assets/fonts/Ubuntu-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: Ubuntu-Light;
+  src: url(assets/fonts/Ubuntu-Light.ttf) format('truetype');
+}
+

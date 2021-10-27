@@ -1,0 +1,18 @@
+<section class="horizontal-zoom-control">
+  <ngx-slider
+    [(value)]="xScale"
+    [options]="horizontalSliderOptions"
+    (userChange)="onValueChange()"
+  >
+  </ngx-slider>
+</section>
+<section class="vertical-zoom-control">
+  <ngx-slider
+    id="vertical-ngx-slider"
+    [(value)]="yScale"
+    [options]="verticalSliderOptions"
+    (userChange)="onValueChange()"
+  >
+  </ngx-slider>
+</section>
+

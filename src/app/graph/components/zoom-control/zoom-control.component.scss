@@ -1,0 +1,55 @@
+.horizontal-zoom-control {
+  width: 50vw;
+  position: fixed;
+  bottom: 0;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}
+.vertical-zoom-control {
+  height: 50vh;
+  position: fixed;
+  right: 10px;
+  transform: translate(-50%, -50%);
+  top: 50%;
+}
+
+::ng-deep {
+  .horizontal-zoom-control {
+    .ngx-slider {
+      .ngx-slider-bar {
+        background: #d4aeff;
+      }
+
+      .ngx-slider-pointer {
+        width: 10px;
+        height: 10px;
+        top: -4px;
+        background: #4d00a9;
+
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .vertical-zoom-control {
+    #vertical-ngx-slider {
+      .ngx-slider-bar {
+        background: #d4aeff;
+      }
+
+      .ngx-slider-pointer {
+        width: 10px;
+        height: 10px;
+        left: -3px !important;
+
+        background: #4d00a9;
+
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}
